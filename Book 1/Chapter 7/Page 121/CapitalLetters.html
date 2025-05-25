@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess Letter Example</title>
+</head>
+<body>
+  <script>
+    // Example word setup
+    const word = "monkey"; // the word to guess
+    const answerArray = Array(word.length).fill("_");
+    let remainingLetters = word.length;
+
+    // Prompt the user to guess a letter
+    const guess = prompt("Guess a letter, or click Cancel to stop playing.");
+
+    if (guess === null) {
+      // Exit the game
+      alert("Game cancelled.");
+    } else if (guess.length !== 1) {
+      alert("Please enter a single letter.");
+    } else {
+      const lowerGuess = guess.toLowerCase(); // convert to lowercase
+
+      // Check and update matching letters
+      for (let j = 0; j < word.length; j++) {
+        if (word[j] === lowerGuess && answerArray[j] === "_") {
+          answerArray[j] = lowerGuess;
+          remainingLetters--;
+        }
+      }
+
+      // Show progress
+      alert("Current progress: " + answerArray.join(" "));
+      alert("Letters remaining: " + remainingLetters);
+    }
+  </script>
+</body>
+</html>

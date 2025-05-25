@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangman Game with Limited Guesses</title>
+</head>
+<body>
+  <h1>Hangman!</h1>
+  <script>
+    // 🔹 Step 1: Define words and choose one randomly
+    const words = ["javascript", "monkey", "amazing", "pancake", "banana"];
+    const word = words[Math.floor(Math.random() * words.length)].toLowerCase();
+
+    // 🔹 Step 2: Initialize answer array and game state
+    const answerArray = Array(word.length).fill("_");
+    let remainingLetters = word.length;
+    const maxGuesses = 8;
+    let guessesLeft = maxGuesses;
+
+    // 🔁 Step 3: Main game loop
+    while (remainingLetters > 0 && guessesLeft > 0) {
+      // Display current game state
+      alert(`Word: ${answerArray.join(" ")}\nGuesses left: ${guessesLeft}`);
+      
+      // Prompt player for input
+      const input = prompt("Guess a letter, or click Cancel to stop playing.");
+      if (input === null) {
+        alert("Game cancelled.");
+        break;
+      }
+
+      // Normalize and validate input
+      const guess = input.toLowerCase();
+      if (guess.length !== 1 || !guess.match(/[a-z]/)) {
+        alert("Please enter a single letter (a-z).");
+        continue;
+      }
+
+      // Check if the guess is correct
+      let correctGuess = false;
+      for (let i = 0; i < word.length; i++) {
+        if (word[i] === guess && answerArray[i] === "_") {
+          answerArray[i] = guess;
+          remainingLetters--;
+          correctGuess = true;
+        }
+      }
+
+      // Reduce guesses only if the guess was wrong
+      if (!correctGuess) {
+        guessesLeft--;
+        alert("Wrong guess!");
+      }
+    }
+
+    // 🎉 Step 4: End of game messages
+    if (remainingLetters === 0) {
+      alert(`🎉 Good job! The word was "${word}".`);
+    } else {
+      alert(`❌ You're out of guesses! The word was "${word}".`);
+    }
+  </script>
+</body>
+</html>

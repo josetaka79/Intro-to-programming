@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hangman Game - Letter Check Logic</title>
+</head>
+<body>
+  <h1>Hangman Game Snippet Test</h1>
+  <script>
+    // Example setup (normally set elsewhere in a full game)
+    const word = "banana";                      // The word to guess
+    const guess = "a";                          // Simulated guessed letter
+    const answerArray = ["b", "_", "n", "_", "n", "_"]; // Current known progress
+    let remainingLetters = 3;                   // How many letters left to guess
+
+    // 🔁 Checking the guessed letter
+    let correctGuess = false;
+    for (let i = 0; i < word.length; i++) {
+      if (word[i] === guess && answerArray[i] === "_") {
+        answerArray[i] = guess;   // Reveal the letter
+        remainingLetters--;       // Only decrement for unrevealed matches
+        correctGuess = true;      // Flag a correct guess
+      }
+    }
+
+    // 💬 Output results
+    console.log("Updated answer array:", answerArray);
+    console.log("Remaining letters:", remainingLetters);
+    console.log("Correct guess?", correctGuess);
+  </script>
+</body>
+</html>
