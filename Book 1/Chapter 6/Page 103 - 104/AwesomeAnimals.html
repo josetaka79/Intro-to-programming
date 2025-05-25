@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Animals</title>
+</head>
+
+<body>
+    <script>
+       // Declare the original array of animals
+var animals = ["Cat", "Fish", "Lemur", "Komodo Dragon"];
+
+// Use a for loop to go through each animal in the array
+for (var i = 0; i < animals.length; i++) {
+
+  // Breakpoint #1: Check the current value of i and animals[i]
+  console.log("Before:", i, animals[i]); // Debug output
+
+  // Modify the current element by prepending 'Awesome '
+  animals[i] = "Awesome " + animals[i];
+
+  // Breakpoint #2: Confirm the change
+  console.log("After:", i, animals[i]); // Debug output
+}
+
+// Final result after loop
+console.log("Final animals array:", animals);
+    </script>
+</body>
+
+</html>

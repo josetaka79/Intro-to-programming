@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Text</title>
+</head>
+<body>
+    <script>
+    // 🔹 Original input text
+    var input = "javascript is awesome"; // 🔸 Breakpoint 1: Inspect original input
+    var output = ""; // Empty string to hold the transformed output
+
+    // 🔹 Loop through each character in the input
+    for (var i = 0; i < input.length; i++) {
+      var letter = input[i]; // 🔸 Breakpoint 2: Current character at index `i`
+
+      // 🔹 Replace letters with numbers if matched
+      if (letter === "a") {
+        output += "4"; // 🔸 Breakpoint 3: Replace 'a' with '4'
+      } else if (letter === "e") {
+        output += "3"; // 🔸 Breakpoint 4: Replace 'e' with '3'
+      } else if (letter === "i") {
+        output += "1"; // 🔸 Breakpoint 5: Replace 'i' with '1'
+      } else if (letter === "o") {
+        output += "0"; // 🔸 Breakpoint 6: Replace 'o' with '0'
+      } else {
+        output += letter; // 🔸 Breakpoint 7: Keep the original character
+      }
+    }
+
+    // 🔹 Output the final transformed string
+    console.log(output); // 🔸 Breakpoint 8: View final result
+    // Expected output: "j4v4scr1pt 1s 4w3s0m3"
+  </script>
+</body>
+</html>

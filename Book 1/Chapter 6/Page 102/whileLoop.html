@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Powers of 3 (While Loop)</title>
+</head>
+<body>
+  <script>
+    // Setup before the loop
+    var power = 3; // 🔸 Breakpoint 1: Initial value
+    // Loop continues as long as power < 10,000
+    while (power < 10000) {
+      console.log(power); // 🔸 Breakpoint 2: View current power
+      power *= 3; // 🔸 Breakpoint 3: Check how power is updated
+    }
+    // Same output as the for loop version:
+    // 3, 9, 27, 81, 243, 729, 2187, 6561
+  </script>
+</body>
+</html>
